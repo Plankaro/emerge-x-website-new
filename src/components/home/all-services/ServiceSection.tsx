@@ -4,14 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { servicesImages } from "@/assets/services";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const sliderData = [
     {
         id: "1",
-        image: servicesImages.mitigatioion,
+        image: "/assets/services/Prevention.jpg",
         text: "Mitigation/Prevention",
         heading: "Explore how Emerge-X utilizes AI CCTV Cameras, Wearable Devices, and HSE Management Software to enhance workplace safety, monitor health indicators, and streamline HSE processes. Mitigate risks, ensure compliance, and foster a safer working environment with our innovative solutions.",
         description:
@@ -19,7 +19,7 @@ const sliderData = [
     },
     {
         id: "2",
-        image: servicesImages.Preparedness,
+        image: "/assets/services/Preparedness.jpg",
         text: "Preparedness",
         heading: "Enhance your organization's readiness with Emerge-X's comprehensive preparedness solutions, including online and offline training, emergency drill support, and real-time training tracking. Equip your team with essential skills to respond effectively in emergencies and foster resilience",
         description:
@@ -27,7 +27,7 @@ const sliderData = [
     },
     {
         id: "3",
-        image: servicesImages.response,
+        image: "/assets/services/Response.jpg",
         text: "Response",
         heading: "Enhance emergency response efficiency and effectiveness with Emerge-X's integrated hardware solutions. Our platform ensures complete automation, providing real-time access to critical information, enabling prompt and coordinated emergency management to minimize impact and ensure safety",
         description:
@@ -35,7 +35,7 @@ const sliderData = [
     },
     {
         id: "4",
-        image: servicesImages.recovery,
+        image: "/assets/services/Recovery.jpg",
         text: "Recovery",
         heading:
             "Facilitate effective recovery with Emerge-X's comprehensive services, including automated incident reporting, AI-driven root cause analysis, and tailored precautionary measures. Empower your organization to learn, adapt, and strengthen emergency management capabilities post-incident",

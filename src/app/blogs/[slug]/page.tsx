@@ -1,13 +1,13 @@
 "use client";
 import CardBlog from "@/components/blogs/CardBlog";
-import HeroBlog from "@/components/blogs/HeroBlog";
+
 import BreadCrumb from "@/components/reusable/BreadCrumb";
 import { HeroResusable } from "@/components/reusable/HeroReusable";
 import { usePathname } from "next/navigation"; // Import usePathname hook
 import SectionWrapper from "@/components/reusable/SectionWrapper";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { blogs } from "@/components/blogs/blogData";
+
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useGetSingleBlogQuery } from "@/store/blogs";

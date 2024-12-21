@@ -1,5 +1,3 @@
-import { aboutHeroImage } from "@/assets/about-us";
-import { team1, team2, team3, team4 } from "@/assets/about-us/team";
 import Headings from "@/components/about/Headings";
 import OurteamCard from "@/components/about/OurteamCard";
 import OurVisionCards from "@/components/about/OurVisionCards";
@@ -18,25 +16,25 @@ const page = () => {
     {
       id: 1,
       name: "Kashyap Jagdish Kamble",
-      image: team1,
+      image: "/assets/about-us/team/abouttem1.jpg",
       designation: "Founder",
     },
     {
       id: 2,
       name: "Priyanka Kashyap Kamble",
-      image:team2,
+      image: "/assets/about-us/team/abouttem2.jpg",
       designation: "Co-Founder",
     },
     {
       id: 3,
       name: "Yassir Aslam",
-      image: team3,
+      image: "/assets/about-us/team/abouttem3.png",
       designation: "CEO",
     },
     {
       id: 4,
       name: "Vibin Baby",
-      image: team4,
+      image: "/assets/about-us/team/abouttem4.jpg",
       designation: "CTO",
     },
   ];
@@ -72,13 +70,13 @@ const page = () => {
         "Dedicated to creating technologies that safeguard health in real-time.",
     },
   ];
-  const trustedCompanis = [0, 1, 2, 3, 4, 5];
+
   return (
     <div className=" min-h-screen">
       <HeroResusable
         title="Journey of Innovation and excellence"
         description="From humble beginnings to industry leadership, we have continuously pushed boundaries to deliver innovative solutions"
-        image={aboutHeroImage.src}
+        image={"/assets/about-us/hero-about-us.png"}
         className="bg-gradient-to-r from-black/10 to-black/90"
         textColor="white"
       />
