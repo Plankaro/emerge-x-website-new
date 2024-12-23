@@ -30,12 +30,12 @@ const Hero = ({ scrollYProgress }: HeroProps) => {
         />
       </div>
 
-      <div className=" absolute left-0 bottom-8 sm:bottom-0 w-full">
-        <div className="  p-12 pb-10 w-full  ">
+      <div className=" absolute left-0 bottom-8 sm:bottom-0 w-full ">
+        <div className=" p-4  sm:p-12 pb-10 w-full  ">
           <div>
             <motion.h2
               style={{ transform: scaleValue }}
-              className="text-[38px] md:text-[58px] font-[700] text-white leading-[60px] md:leading-[70px] whitespace-nowrap"
+              className="text-[38px] md:text-[58px] font-[700] text-white leading-[60px] md:leading-[70px]  "
             >
               Reliable
               <br />

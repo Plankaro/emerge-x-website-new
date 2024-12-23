@@ -50,7 +50,7 @@ const BookDemoButton: React.FC<BookDemoButtonTpes> = ({
         <span>Book a Demo</span>
 
         {rightArrow && (
-          <span className=" bg-customGreen rounded-full w-[58px] h-[58px] text-2xl flex items-center justify-center ">
+          <span className=" bg-customGreen rounded-full w-[48px] h-[48px] sm:w-[58px] sm:h-[58px] text-2xl flex items-center justify-center ">
             <FaArrowRight color="#FFFFFF" />
           </span>
         )}

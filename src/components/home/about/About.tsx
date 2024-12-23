@@ -59,7 +59,7 @@ const About = ({ scrollYProgress }: AboutProps) => {
             <p className="text-white text-justify leading-6 sm:leading-9 md:leading-[44px] font-[400] text-[15px] sm:text-[24px] md:text-[32px] mt-10 px-4">
               Emerge-X: Your Partner in quick, effective emergency solutions
             </p>
-            <p className="text-justify text-white  opacity-45 leading-6 whitespace-pre-line  sm:leading-8  font-[400] text-xs sm:text-[18px] mt-8 px-4">
+            <p className="text-justify text-white  opacity-45 leading-6 whitespace-pre-line  sm:leading-8  font-[400] text-sm sm:text-[18px] mt-8 px-4">
               Welcome to Emerge-X, a seasoned leader in Emergency Management
               Solutions with 15 years of expertise. Our innovative software
               platform is tailored to enhance organizational safety and

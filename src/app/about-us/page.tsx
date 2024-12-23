@@ -16,19 +16,19 @@ const page = () => {
     {
       id: 1,
       name: "Kashyap Jagdish Kamble",
-      image: "/assets/about-us/team/abouttem1.jpg",
+      image: "/assets/about-us/team/abouttem1.JPG",
       designation: "Founder",
     },
     {
       id: 2,
       name: "Priyanka Kashyap Kamble",
-      image: "/assets/about-us/team/abouttem2.jpg",
+      image: "/assets/about-us/team/abouttem2.JPG",
       designation: "Co-Founder",
     },
     {
       id: 3,
       name: "Yassir Aslam",
-      image: "/assets/about-us/team/abouttem3.png",
+      image: "/assets/about-us/team/abouttem3.PNG",
       designation: "CEO",
     },
     {
