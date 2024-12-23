@@ -32,7 +32,7 @@ const page = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
   const handlePagination = async (page: number) => {
     try {
       const response: any = await getApiHelper(
-        `https://emerge-x-backend-c2kvq.ondigitalocean.app/v1/blog?page=${page}&limit=10`,
+        `${process.env.NEXT_PUBLIC_API_URL}/v1/blog?page=${page}&limit=10`,
         "GET"
       );
 

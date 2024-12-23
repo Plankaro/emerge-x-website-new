@@ -10,7 +10,7 @@ const SectionHeading: React.FC<SectionHeadingtypes> = ({ className, text, id }) 
     <h2
       id={id}
       className={cn(
-        ` text-black  font-[700] text-[28px] md:text-[39px] lg:text-[36px] text-center  `,
+        ` text-black  font-[700] text-[28px] md:text-[39px] lg:text-[36px] text-center mb-10  `,
         className
       )}
     >

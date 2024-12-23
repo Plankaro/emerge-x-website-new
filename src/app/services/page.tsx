@@ -1,11 +1,11 @@
 import BreadCrumb from "@/components/reusable/BreadCrumb";
-import { HeroResusable } from "@/components/reusable/HeroReusable";
+
 import SectionWrapper from "@/components/reusable/SectionWrapper";
 import FrequentlyaskedQuestions from "@/components/services/FrequentlyaskedQuestions";
-import ImageHoverEffect from "@/components/services/ImageHoverEffect";
+
 import { servicesData } from "@/components/services/services";
 import SingleServiceSliderSection from "@/components/services/SingleServiceSliderSection";
-import Image from "next/image";
+
 import React from "react";
 
 const page = () => {
@@ -80,10 +80,13 @@ const page = () => {
       </SectionWrapper>
 
       {/* <SectionWrapper> */}
-        {/* <ImageHoverEffect /> */}
+      {/* <ImageHoverEffect /> */}
       {/* </SectionWrapper> */}
       <SectionWrapper>
-        <FrequentlyaskedQuestions faq={servicesData[0].faq} title={servicesData[0].faqtitle} />
+        <FrequentlyaskedQuestions
+          faq={servicesData[0].faq}
+          title={servicesData[0].faqtitle}
+        />
       </SectionWrapper>
     </div>
   );

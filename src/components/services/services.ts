@@ -1,5 +1,3 @@
-
-
 export const servicesData = [
   {
     id: 1,
@@ -78,7 +76,7 @@ export const servicesData = [
         heading: "HSE Management System Software",
         content:
           "Our comprehensive software solutions streamline Health, Safety, and Environmental (HSE) management processes, facilitating compliance and effective risk management.",
-        image: "/assets/services/Metegation/metegation3.jpg",
+        image: "/assets/services/Metegation/metegation2.jpg",
       },
     ],
 
@@ -512,28 +510,30 @@ With Emerge-X, your emergency teams are equipped to tackle challenges head-on, e
         heading: "Complete Automation of Emergency Operations",
         content:
           "Fully automated systems to handle emergency processes, reducing manual intervention and improving response times.",
-        image: "/assets/services/Response/Complete Automation of Emergency Operations.jpg",
+        image:
+          "/assets/services/Response/Complete Automation of Emergency Operations.jpg",
       },
       {
         id: 3,
         heading: "Real-Time Access to Critical Information",
         content:
           "Instant availability of essential data for informed decision-making during emergencies.",
-        image: "/assets/services/Response/Real-Time Access to Critical Information.jpg",
+        image:
+          "/assets/services/Response/Real-Time Access to Critical Information.jpg",
       },
       {
         id: 4,
         heading: "Empowered Emergency Teams",
         content:
           "Equip teams with tools and resources to handle crises effectively and confidently.",
-        image:  "/assets/services/Response/Empowered Emergency Teams.jpg",
+        image: "/assets/services/Response/Empowered Emergency Teams.jpg",
       },
       {
         id: 5,
         heading: "Prompt and Coordinated Response",
         content:
           "Streamlined communication and operations ensure quick, unified actions during emergencies.",
-        image:  "/assets/services/Response/Prompt and Coordinated Response.jpg",
+        image: "/assets/services/Response/Prompt and Coordinated Response.jpg",
       },
       {
         id: 6,
@@ -547,13 +547,22 @@ With Emerge-X, your emergency teams are equipped to tackle challenges head-on, e
         heading: "Ensured Safety for All Involved",
         content:
           "Comprehensive measures to protect employees, assets, and stakeholders during emergencies.",
-        image:  "/assets/services/Response/Ensured Safety for All Involved.jpg",
+        image: "/assets/services/Response/Ensured Safety for All Involved.jpg",
       },
     ],
     footerImages: [
-      { id: 1, image: "/assets/services/Response/Integrated Hardware Solutions.jpg" },
-      { id: 2, image: "/assets/services/Response/Ensured Safety for All Involved.jpg" },
-      { id: 3, image:  "/assets/services/Response/Minimized Impact of Emergencies.jpg" },
+      {
+        id: 1,
+        image: "/assets/services/Response/Integrated Hardware Solutions.jpg",
+      },
+      {
+        id: 2,
+        image: "/assets/services/Response/Ensured Safety for All Involved.jpg",
+      },
+      {
+        id: 3,
+        image: "/assets/services/Response/Minimized Impact of Emergencies.jpg",
+      },
     ],
   },
 ];

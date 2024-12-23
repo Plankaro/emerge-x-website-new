@@ -7,9 +7,11 @@ import FooterSubscribeForm from "./FooterSubscribeForm";
 
 const Footer = () => {
   return (
-    <footer className="pb-20 bg-white">
+    <footer className="py-20 bg-white">
       <SectionWrapper className="mt-20 md:mt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-14 px-4 text-black"> {/* Set text color to black for all content inside this container */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-14 px-4 text-black">
+          {" "}
+          {/* Set text color to black for all content inside this container */}
           <div className="space-y-5">
             <div className="w-[172px] h-auto">
               <Image
@@ -44,7 +46,7 @@ const Footer = () => {
                   </li>
                 ))}
                 <div>
-                  <Link href={"/contact-us"} >contact us</Link>
+                  <Link href={"/contact-us"}>contact us</Link>
                 </div>
               </ul>
             </div>

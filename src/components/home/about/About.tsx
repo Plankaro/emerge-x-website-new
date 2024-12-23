@@ -4,7 +4,7 @@ import SectionHeading from "@/components/reusable/SectionHeading";
 import SectionWrapper from "@/components/reusable/SectionWrapper";
 import { MotionValue, useMotionTemplate, useTransform } from "framer-motion";
 import React from "react";
-import { MdVerifiedUser } from "react-icons/md";
+
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -22,19 +22,6 @@ const About = ({ scrollYProgress }: AboutProps) => {
   const borderRadious = useTransform(scrollYProgress, [0, 0.5], [20, 0]);
   const borderRadiousValue = useMotionTemplate`${borderRadious}px`;
 
-  const aboutCardData = [
-    {
-      heading: "Vision",
-      discription:
-        "Pioneering the future of wearable technology for a safer tomorrow.",
-    },
-    {
-      heading: "Mission",
-      discription:
-        "Focused on delivering real-time health monitoring and emergency response solutions.",
-    },
-  ];
-
   return (
     <motion.div
       style={{
@@ -44,7 +31,7 @@ const About = ({ scrollYProgress }: AboutProps) => {
         // minWidth: "60vh",
         boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)",
       }}
-      className="flex justify-center lg:pl-8 items-center relative z-30 bg-[#222720] rounded-lg transition-transform duration-500 ease-in-out"
+      className="flex justify-center  items-center relative z-20 bg-[#222720] rounded-lg transition-transform duration-500 ease-in-out"
     >
       <SectionWrapper className="mt-8 md:mt-12 lg:mt-12 w-full">
         <div className="text-center flex flex-col items-center">
@@ -52,14 +39,14 @@ const About = ({ scrollYProgress }: AboutProps) => {
         </div>
 
         <div
-          className="flex  flex-col md:flex-row items-center gap-6 mt-10 pb-16 w-full"
+          className="flex  flex-col lg:flex-row items-center gap-6  pb-16 w-full"
           id="about-section"
         >
-          <div className=" w-full  ">
-            <p className="text-white text-justify leading-6 sm:leading-9 md:leading-[44px] font-[400] text-[15px] sm:text-[24px] md:text-[32px] mt-10 px-4">
+          <div className=" w-full   ">
+            <p className="text-white  leading-6 sm:leading-9 md:leading-[44px] font-[400] text-[15px] sm:text-[24px] md:text-[32px]  ">
               Emerge-X: Your Partner in quick, effective emergency solutions
             </p>
-            <p className="text-justify text-white  opacity-45 leading-6 whitespace-pre-line  sm:leading-8  font-[400] text-sm sm:text-[18px] mt-8 px-4">
+            <p className="text-justify text-white  opacity-45 leading-6 whitespace-pre-line  sm:leading-8  font-[400] text-sm sm:text-[18px] mt-8  transition-all duration-300 ">
               Welcome to Emerge-X, a seasoned leader in Emergency Management
               Solutions with 15 years of expertise. Our innovative software
               platform is tailored to enhance organizational safety and
@@ -83,7 +70,7 @@ const About = ({ scrollYProgress }: AboutProps) => {
               and continuous enhancement in emergency management. Come join us
               in shaping a safer tomorrow.
             </p>
-            <div className="flex items-start justify-start mt-12 px-4">
+            <div className="flex items-start justify-start mt-12">
               <button
                 type="submit"
                 onClick={() => router.push("/about-us")}
@@ -139,9 +126,9 @@ function Card() {
 
   return (
     <div className="flex flex-col items-center justify-between   ">
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-center items-center relative  ">
         <motion.svg
-          className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 rotate-[-90deg]"
+          className=" w-72 h-72 sm:w-80 sm:h-80 rotate-[-90deg]"
           viewBox="0 0 40 40"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -213,10 +200,10 @@ function Card() {
         </motion.svg>
         <div className="absolute text-center text-white font-[600]">
           <p className="text-xs sm:text-sm absolute top-10 left-10 ">
-            Recovery 
+            Recovery
           </p>
           <p className="text-xs sm:text-sm absolute top-10 right-10 text-[#7eb965]">
-            Response 
+            Response
           </p>
           <p className="text-xs sm:text-sm absolute bottom-10 right-10  ">
             Mitigation/ Prevention

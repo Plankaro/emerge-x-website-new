@@ -11,62 +11,60 @@ import CardBlog from "@/components/blogs/CardBlog";
 import { BlogData } from "@/store/blogs/types/blog.types";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-
 interface BlogDataTypes {
-  data?: BlogData
+  data?: BlogData;
 }
 
 const LetestBlogs: React.FC<BlogDataTypes> = ({ data }) => {
-
-
-
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(() => {
-    gsap.set(".blog-card", { opacity: 0, y: 50, scale: 0.9 }); // Initial state (hidden, scaled down)
+  useGSAP(
+    () => {
+      gsap.set(".blog-card", { opacity: 0, y: 50, scale: 0.9 }); // Initial state (hidden, scaled down)
 
-    ScrollTrigger.create({
-      trigger: "#container", // The parent container for the cards
-      start: "top 80%",
-      end: "bottom 20%",
-      markers: false,
-      onEnter: () => {
-        gsap.to(".blog-card", {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          stagger: 0.2, // Each card animates 0.2s apart
-          duration: 0.8,
-          ease: "power1.out",
-        });
-        gsap.to("#sectionHeading", {
-          opacity: 1,
-          duration: 0.5,
-          ease: "power1.out",
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(".blog-card", {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-          duration: 0.5,
-          ease: "power1.in",
-        });
-        gsap.to("#sectionHeading", {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power1.in",
-        });
-      },
-    });
-  }, { scope: containerRef });
-
+      ScrollTrigger.create({
+        trigger: "#container", // The parent container for the cards
+        start: "top 80%",
+        end: "bottom 20%",
+        markers: false,
+        onEnter: () => {
+          gsap.to(".blog-card", {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.2, // Each card animates 0.2s apart
+            duration: 0.8,
+            ease: "power1.out",
+          });
+          gsap.to("#sectionHeading", {
+            opacity: 1,
+            duration: 0.5,
+            ease: "power1.out",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(".blog-card", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9,
+            duration: 0.5,
+            ease: "power1.in",
+          });
+          gsap.to("#sectionHeading", {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power1.in",
+          });
+        },
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
     <div ref={containerRef}>
-      <div className="relative overflow-visible  h-auto p-9  " id="container" >
-        <span id={"blogs"} className='mt-[-160px] pb-[130px] block' >
+      <div className="relative overflow-visible  h-auto p-9  " id="container">
+        <span id={"blogs"} className="mt-[-160px] pb-[130px] block">
           &nbsp;
         </span>
         <div
@@ -102,13 +100,11 @@ const LetestBlogs: React.FC<BlogDataTypes> = ({ data }) => {
                         dateButtonStyle="w-[45%] left-2 h-[15%] text-[15px]"
                         imageStyle="rounded-[26px]"
                       />
-                      {/* <BlogCard img={'/services/About US.jpg'} title={e.title}
-                      /> */}
+                    
                     </div>
                   ))}
                 </div>
               </div>
-
 
               <div className="text-center">
                 <Link href={"/blogs"}>
@@ -125,25 +121,6 @@ const LetestBlogs: React.FC<BlogDataTypes> = ({ data }) => {
   );
 };
 
-const BlogCard = ({ img, title, }: { img: string, title: string }) => {
-  return (
-    <div className="text-center flex flex-col items-center md:gap-4 py-8">
-      <div className="w-full rounded-[20px] overflow-hidden ">
-        <Image src={img} alt="services_images" height={600} width={800} />
-      </div>
-      <div className="flex items-center justify-between w-full px-2 mt-7 md:mt-10 gap-4">
-        <h3 className="text-black text-xl md:text-xl text-start font-semibold w-[70%]">
-          {title}
-        </h3>
-        <Link href={"/blogs/wehln"}>
-          <button className="rounded-full text-sm md:text-base w-[102px] py-1.5 md:py-2 bg-customGreen text-white font-semibold">
-            View more
-          </button>
-        </Link>
-      </div>
 
-    </div>
-  );
-};
 
 export default LetestBlogs;

@@ -11,13 +11,12 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getApiHelper } from "@/components/helper/apiHelper";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { useDispatch } from "react-redux";
+
 import { blogsData } from "@/store/reducer/blog";
-import { newsData } from "@/store/reducer/news";
-import ServiceSection from "@/components/home/all-services/ServiceSection";
+
 import { useGetBlogsQuery } from "@/store/blogs";
-import SingleServiceSliderSection from "@/components/services/SingleServiceSliderSection";
+
 import SectionHeading from "@/components/reusable/SectionHeading";
 import HomeServiceSlider from "@/components/home/all-services/HomeServiceSlider";
 import { useGetNewsQuery } from "@/store/news";
@@ -26,15 +25,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const targetRef = useRef<HTMLDivElement | null>(null);
-  const latestBlogRef = useRef<HTMLDivElement | null>(null);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
-  const [latestBlogSectionHeight, setlatestBlogSectionHeight] = useState(0);
-
-  const blogsAllData = useSelector((state: RootState) => state.blog.blogsData);
-  const newsAllData = useSelector((state: RootState) => state.news.newsData);
 
   const dispatch = useDispatch();
 
@@ -46,7 +40,7 @@ export default function Home() {
   const getBlogData = async () => {
     try {
       const response: any = await getApiHelper(
-        "https://emerge-x-backend-c2kvq.ondigitalocean.app/v1/blog?page=1&limit=10",
+        `${process.env.NEXT_PUBLIC_API_URL}/v1/blog?page=1&limit=10`,
         "GET"
       );
       if (response?.success) {
@@ -63,7 +57,7 @@ export default function Home() {
   const getNewsData = async () => {
     try {
       const response: any = await getApiHelper(
-        "https://emerge-x-backend-c2kvq.ondigitalocean.app/v1/news?page=1&limit=10",
+        `${process.env.NEXT_PUBLIC_API_URL}/v1/news?page=1&limit=10`,
         "GET"
       );
 
@@ -102,7 +96,6 @@ export default function Home() {
 
   const { data } = useGetBlogsQuery({ page: 1, limit: 10 });
   const { data: newsData } = useGetNewsQuery({ page: 1, limit: 5 });
-  console.log("🚀 ~ Home ~ newsData:", newsData);
 
   return (
     <div className="space-y-4 relative " id="home">
@@ -114,8 +107,7 @@ export default function Home() {
         </div>
       </div>
       <>
-        {/* <ServiceSection /> */}
-        <div className="bg-greyishblack pt-12 " id="services">
+        <div className="bg-greyishblack pt-12   " id="services">
           <SectionHeading text="All Services" className="text-white" />
           <HomeServiceSlider />
         </div>

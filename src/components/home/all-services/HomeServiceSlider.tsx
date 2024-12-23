@@ -14,9 +14,7 @@ import { cn } from "@/lib/utils";
 import { servicesData } from "@/components/services/services";
 import Link from "next/link";
 
-const HomeServiceSlider: React.FC = ({
-
-}) => {
+const HomeServiceSlider: React.FC = ({}) => {
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -35,11 +33,7 @@ const HomeServiceSlider: React.FC = ({
     }
   }, []);
 
-  const goToSlide = (index: number) => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slideTo(index);
-    }
-  };
+
 
   const slideNext = () => {
     if (swiperRef.current) {
@@ -53,30 +47,13 @@ const HomeServiceSlider: React.FC = ({
     }
   };
 
-
-
-
   return (
-    <div className={` bg-greyishblack text-white pt-24    pb-10   rounded-t-[40px] md:rounded-t-[90px] lg:rounded-t-[110px] `}>
+    <div
+      className={` bg-greyishblack text-white     pb-10   rounded-t-[40px] md:rounded-t-[90px] lg:rounded-t-[110px] `}
+    >
       <div className=" w-full flex flex-col md:flex-row md:justify-between gap-5 md:pl-[50px] ">
-        <div className="w-full  space-y-24 md:w-[30%] flex flex-col items-end">
-
-          <div className="mx-4 w-full pl-4">
-            <div className=" ">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={activeIndex}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="text-3xl w-full  font-[400] text-left">
-                  {servicesData?.[activeIndex]?.title}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </div>
-          <div className={cn("px-4 md:px-0",)}>
+        <div className="w-full  md:w-[38%] flex flex-col justify-between  gap-5 px-4 md:px-0 ">
+          <div className=" w-full ">
             <AnimatePresence mode="wait">
               <motion.p
                 key={activeIndex}
@@ -84,23 +61,41 @@ const HomeServiceSlider: React.FC = ({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="text-sm  leading-[24px] font-[400]">
-                {/* EmergeX will assist you to better understand and manage workplace
-              safety by integrating hazards and incident reporting with
-              investigations, actions and metrics reporting. */}
-                {servicesData?.[activeIndex]?.titledetails}
+                className="text-3xl w-full  font-[400] text-left"
+              >
+                {servicesData?.[activeIndex]?.title}
               </motion.p>
             </AnimatePresence>
+
+            <div className={cn(" mt-4")}>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="text-sm  leading-[24px] font-[400]"
+                >
+                  {/* EmergeX will assist you to better understand and manage workplace
+              safety by integrating hazards and incident reporting with
+              investigations, actions and metrics reporting. */}
+                  {servicesData?.[activeIndex]?.titledetails}
+                </motion.p>
+              </AnimatePresence>
+            </div>
           </div>
-          <div className="flex self-start items-start justify-start mt-12">
-            <Link href={`/services/${servicesData?.[activeIndex]?.id}`}
+
+          <div className="flex self-start items-start justify-start ">
+            <Link
+              href={`/services/${servicesData?.[activeIndex]?.id}`}
               className="px-[20px] py-[8px] text-[16px] sm:text-base bg-[#3DA229] rounded-full text-white hover:bg-[#3DA229] transition-all duration-300 ease-in-out"
             >
               Explore Now
             </Link>
           </div>
         </div>
-        <div className=" w-full md:w-[60%]">
+        <div className=" w-full md:w-[60%] ">
           <SwiperComponent
             ref={swiperRef}
             modules={[Virtual]}
@@ -144,10 +139,9 @@ const HomeServiceSlider: React.FC = ({
         </div>
       </div>
       <div className="flex items-center justify-between ">
-        <div className="w-[32%]"></div>
-        <div className="flex items-center gap-4 mt-5 w-[56.5%]">
-          {
-            servicesData && servicesData.length > 0 &&
+        <div className=" hidden md:block w-0 md:w-[32%]"></div>
+        <div className="flex items-center justify-center md:justify-start gap-4 mt-5 w-full md:w-[56.5%]">
+          {servicesData && servicesData.length > 0 && (
             <>
               <button
                 onClick={slidePreview}
@@ -166,10 +160,8 @@ const HomeServiceSlider: React.FC = ({
               >
                 <FaArrowRightLong />
               </button>
-
             </>
-          }
-
+          )}
         </div>
       </div>
     </div>

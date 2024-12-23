@@ -6,7 +6,7 @@ import FrequentlyaskedQuestions from "@/components/services/FrequentlyaskedQuest
 import ImageHoverEffect from "@/components/services/ImageHoverEffect";
 import { servicesData } from "@/components/services/services";
 import SingleServiceSliderSection from "@/components/services/SingleServiceSliderSection";
-import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 export interface Faq {
@@ -90,21 +90,19 @@ const page = () => {
                   </div>
                 </div>
                 <div className="prose max-w-none">
-                  <p className=" text-xl md:text-4xl  text-bold text-greyishblack">
+                  <p className=" text-xl md:text-3xl lg:text-4xl  text-bold text-greyishblack">
                     {data?.whatsnewContent}
                   </p>
                 </div>
               </div>
             </SectionWrapper>
 
-            <div>
-              <SectionWrapper className="w-full">
-                <SingleServiceSliderSection
-                  subHeading={data?.subHeading}
-                  numericId={id ?? 0}
-                />
-              </SectionWrapper>
-            </div>
+            <SectionWrapper className="w-full">
+              <SingleServiceSliderSection
+                subHeading={data?.subHeading}
+                numericId={id ?? 0}
+              />
+            </SectionWrapper>
 
             <SectionWrapper>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 mt-8 ">
@@ -117,19 +115,12 @@ const page = () => {
                 </div>
                 <div className="prose max-w-none flex flex-col gap-8">
                   <p className=" text-base md:text-lg  text-greyishblack">
-                    {/* {data?.details2} */}
                     <div
                       dangerouslySetInnerHTML={{
                         __html: data?.details,
                       }}
                     />
-                    {/* {data?.heading} */}
                   </p>
-
-                  {/* <div className="w-full border border-dashed border-black my-10"></div>
-                  <p className=" text-base md:text-lg leading-[32px] text-greyishblack">
-                    {data?.details3}
-                  </p> */}
                 </div>
               </div>
             </SectionWrapper>
