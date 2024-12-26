@@ -199,20 +199,20 @@ function Card() {
           />
         </motion.svg>
         <div className="absolute text-center text-white font-[600]">
-          <p className="text-xs sm:text-sm absolute top-10 left-10 ">
+          <p className="text-xs sm:text-sm absolute top-16 left-16  " style={{rotate:"125deg"}}>
             Recovery
           </p>
-          <p className="text-xs sm:text-sm absolute top-10 right-10 text-[#7eb965]">
+          <p className="text-xs sm:text-sm absolute top-16 right-16 text-[#7eb965]"  style={{rotate:"-125deg"}}>
             Response
           </p>
-          <p className="text-xs sm:text-sm absolute bottom-10 right-10  ">
+          <p className="text-xs sm:text-sm absolute bottom-12 right-16  " style={{rotate:"-65deg"}}>
             Mitigation/ Prevention
           </p>
-          <p className="text-xs sm:text-sm absolute bottom-10 left-10 text-[#7eb965] ">
+          <p className="text-xs sm:text-sm absolute bottom-16 left-14 text-[#7eb965] "  style={{rotate:"58deg"}}>
             Preparedness
           </p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }

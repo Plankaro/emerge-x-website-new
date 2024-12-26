@@ -76,7 +76,7 @@ const CardBlog: React.FC<CardBlogTypes> = ({
           alt="Subtract Icon"
           width={280}
           height={400}
-          className={cn(` absolute top-0 left-0 z-20 w-[60%] `, curveIconStyle)}
+          className={cn(` absolute top-0 left-0 z-20 w-[60%]  `, curveIconStyle)}
         />
         <Image
           src={data?.futureImages || ""}

@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollToPlugin);
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>("#home");
-  // a
+
   const pathName = usePathname();
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -71,13 +71,13 @@ const NavBar = () => {
         </Link>
 
         {pathName === "/" ? (
-          <ul className=" sm:w-[82%] lg:w-[70%] max-w-[900px]  hidden md:flex items-center gap-1   justify-between ">
+          <ul className=" sm:w-[70%] lg:w-[60%] max-w-[900px]  hidden md:flex items-center gap-1   justify-between ">
             {navList?.map((e, i) => {
               const active = activeSection == e.link;
               return (
                 <li
                   key={i}
-                  className={`hover:text-customGreen cursor-pointer text-md lg:text-xl ${active ? "text-customGreen" : "text-[#767676]"
+                  className={`hover:text-customGreen cursor-pointer text-sm lg:text-base ${active ? "text-customGreen" : "text-[#767676]"
                     }`}
                 >
                   <div onClick={() => scrollToSection(e.link)}>{e.label}</div>
@@ -88,12 +88,12 @@ const NavBar = () => {
               <BookDemoButton
                 hideNavbar={false}
                 rightArrow={false}
-                className={`bg-customGreen text-white text-md lg:text-xl rounded-2xl md:py-[8px] sm:w-auto px-[4px]  md:w-[167px] text-md justify-center`}
+                className={`bg-customGreen text-white text-sm lg:text-base rounded-2xl md:py-[8px] sm:w-auto px-[4px]  md:w-[167px] text-md justify-center`}
               />
             </li>
           </ul>
         ) : (
-          <ul className=" sm:w-[82%] lg:w-[70%] max-w-[900px]  hidden md:flex items-center  gap-1   justify-between ">
+          <ul className=" sm:w-[70%] lg:w-[60%] max-w-[900px]  hidden md:flex items-center  gap-1   justify-between ">
             {navList?.map((e, i) => {
               const active =
                 e.page !== "/" &&
@@ -101,7 +101,7 @@ const NavBar = () => {
               return (
                 <li
                   key={i}
-                  className={`hover:text-customGreen cursor-pointer text-md lg:text-xl ${active ? "text-customGreen" : "text-[#767676]"
+                  className={`hover:text-customGreen cursor-pointer text-sm lg:text-base ${active ? "text-customGreen" : "text-[#767676]"
                     }`}
                 >
                   <button
@@ -118,7 +118,7 @@ const NavBar = () => {
               <BookDemoButton
                 hideNavbar={false}
                 rightArrow={false}
-                className={`bg-customGreen text-white text-md lg:text-xl rounded-2xl md:py-[8px] sm:w-auto px-[8px]  md:w-[167px] text-md justify-center`}
+                className={`bg-customGreen text-white text-sm lg:text-base rounded-2xl md:py-[8px] sm:w-auto px-[8px]  md:w-[167px] text-md justify-center`}
               />
             </li>
           </ul>

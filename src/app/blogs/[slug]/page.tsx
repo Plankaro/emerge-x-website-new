@@ -67,8 +67,8 @@ const page = () => {
               {/* {data?.description} */}
             </p>
           </div>
-          <div className="w-full md:w-[45%] max-w-[516px]">
-            <div>
+          <div className="w-full md:w-[45%] max-w-[516px] rounded-[20px]  overflow-hidden">
+            <div className="rounded-[20px] overflow-hidden">
               <Image
                 src={data?.blog?.futureImages ?? ""}
                 alt="img-blog"

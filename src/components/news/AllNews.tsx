@@ -52,12 +52,12 @@ export const AllNewsPage = () => {
       }
     } catch (error: any) {
       console.error("API error:", error.error || error.message);
-      alert(error.error || error.message);
+      console.log(error.error || error.message);
     }
   };
 
   const newsItemsData = newsAllData?.news;
-  console.log(newsAllData);
+
 
   const navTrain = [
     { link: "/", label: "Home", id: "a1" },

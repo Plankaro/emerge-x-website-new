@@ -25,7 +25,7 @@ export const NewsPage = ({ slug }: { slug: string }) => {
   const getNewsData = async () => {
     try {
       const response: any = await getApiHelper(
-        "https://emerge-x-backend-c2kvq.ondigitalocean.app/v1/news?page=1&limit=10",
+        `${process.env.NEXT_PUBLIC_API_URL}/v1/news?page=1&limit=10`,
         "GET"
       );
 
@@ -36,7 +36,6 @@ export const NewsPage = ({ slug }: { slug: string }) => {
       }
     } catch (error: any) {
       console.error("API error:", error.error || error.message);
-      alert(error.error || error.message);
     }
   };
 
@@ -142,7 +141,7 @@ export const NewsPage = ({ slug }: { slug: string }) => {
                 alt="Feedback System"
                 width={600}
                 height={400}
-                className="rounded-lg w-full"
+                className="rounded-[20px]  w-full"
               />
             </div>
           </div>
@@ -169,14 +168,14 @@ export const NewsPage = ({ slug }: { slug: string }) => {
                   alt="Feedback System"
                   width={600}
                   height={400}
-                  className="rounded-lg w-full min-h-[385px]"
+                  className=" rounded-[20px] w-full min-h-[385px]"
                 />
                 <Image
                   src={subFeatureImage2 ?? ""}
                   alt="Feedback System"
                   width={600}
                   height={400}
-                  className="rounded-lg w-full min-h-[385px]"
+                  className="rounded-[20px]  w-full min-h-[385px]"
                 />
               </div>
               <p className="mt-6 text-lg text-gray-600">{description2}</p>

@@ -1,11 +1,14 @@
+"use client";
 import React from "react";
 import SectionWrapper from "../reusable/SectionWrapper";
 import Image from "next/image";
 import Link from "next/link";
-import { navList } from "@/enums/Navbar/navbarlist";
+import { footerNave } from "@/enums/Navbar/navbarlist";
 import FooterSubscribeForm from "./FooterSubscribeForm";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathName = usePathname();
   return (
     <footer className="py-20 bg-white">
       <SectionWrapper className="mt-20 md:mt-32">
@@ -40,14 +43,22 @@ const Footer = () => {
             <div>
               {/* <h2 className="font-semibold text-base mb-5">Useful links</h2> */}
               <ul className="space-y-4">
-                {navList?.map((e, i) => (
-                  <li key={i} className="hover:text-customGreen text-base">
-                    <Link href={e.link}>{e.label}</Link>
-                  </li>
-                ))}
-                <div>
-                  <Link href={"/contact-us"}>contact us</Link>
-                </div>
+                {footerNave?.map((e, i) => {
+                  const active =
+                    // e.page !== "/" &&
+                    pathName === e.page || pathName.startsWith(`${e.page}/`);
+
+                  return (
+                    <li
+                      key={i}
+                      className={`hover:text-customGreen text-base ${
+                        active ? "text-customGreen" : "text-[#767676]"
+                      }`}
+                    >
+                      <Link href={e.page}>{e.label}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

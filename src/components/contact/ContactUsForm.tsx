@@ -20,7 +20,7 @@ const schema = yup.object({
     .min(10, "Contact number must be 10 digits")
     .required("Contact number is required"),
   country: yup.string().optional(),
-  company: yup.string().required("Company name is required"),
+  company: yup.string().optional(),
   note: yup.string().required("Message is required"),
 });
 
@@ -93,7 +93,7 @@ const mobileUsForm = () => {
               type="text"
               id="name"
               {...register("name")}
-              className="px-3 py-2 border-none outline-none"
+              className="pr-3 py-2 border-none outline-none"
             />
             {errors.name && (
               <span className="text-red-500 text-sm">
@@ -109,7 +109,7 @@ const mobileUsForm = () => {
               type="email"
               id="email"
               {...register("email")}
-              className="px-3 py-2 border-none outline-none"
+              className="pr-3 py-2 border-none outline-none"
             />
             {errors.email && (
               <span className="text-red-500 text-sm">
@@ -127,7 +127,7 @@ const mobileUsForm = () => {
               minLength={10}
               id="contact"
               {...register("mobile")}
-              className="px-3 py-2 border-none outline-none"
+              className="pr-3 py-2 border-none outline-none"
             />
             {errors.mobile && (
               <span className="text-red-500 text-sm">
@@ -143,18 +143,18 @@ const mobileUsForm = () => {
               type="text"
               id="country"
               {...register("country")}
-              className="px-3 py-2 border-none outline-none"
+              className="pr-3 py-2 border-none outline-none"
             />
           </div>
 
           {/* Company */}
           <div className="border-b-2 border-black flex flex-col">
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company">Company (Optional)</label>
             <input
               type="text"
               id="company"
               {...register("company")}
-              className="px-3 py-2 border-none outline-none"
+              className="pr-3 py-2 border-none outline-none"
             />
             {errors.company && (
               <span className="text-red-500 text-sm">
@@ -164,12 +164,12 @@ const mobileUsForm = () => {
           </div>
 
           {/* Message */}
-          <div className="border-b-2 border-black flex flex-col">
+          <div className=" flex flex-col">
             <label htmlFor="message">Message</label>
             <textarea
               id="note"
               {...register("note")}
-              className="px-3 py-2 border-none outline-none"
+              className="px-3 py-2 border-2 border-black rounded-lg outline-none"
             ></textarea>
             {errors.note && (
               <span className="text-red-500 text-sm">

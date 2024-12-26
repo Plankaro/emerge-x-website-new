@@ -116,7 +116,7 @@ const page = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
               </div>
 
               {/* Trending Section */}
-              <div className="hidden md:flex flex-col gap-4 mt-8">
+              <div className="hidden md:flex flex-col gap-4 mt-8 ">
                 {blogsAllData?.blog?.slice(0, 4).map((e: any, i: number) => (
                   <CardBlog
                     data={e}
@@ -131,7 +131,7 @@ const page = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
                 ))}
                 {blogsAllData?.length === 0 && <Loader />}
               </div>
-              <div className="md:hidden flex flex-col gap-4 mt-8">
+              <div className="md:hidden flex flex-col gap-4 mt-8 ">
                 {blogsAllData?.blog?.map((e: any, i: number) => (
                   <CardBlog
                     key={i}
@@ -166,8 +166,8 @@ const page = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
                 styleHeading="text-[14px] lg:text-[16px]"
                 styleBox="aspect-square max-w-[270px]"
                 styleCard="items-start max-w-[270px] mx-auto"
-                curveIconStyle="w-[40%]"
-                dateButtonStyle="w-[32%] left-2 "
+                curveIconStyle="w-[40%] "
+                dateButtonStyle="w-[32%] left-2 text-[10px] "
                 imageStyle="rounded-[26px]"
               />
             ))}
