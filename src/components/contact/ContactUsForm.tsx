@@ -4,7 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { useContactusMutation } from "@/store/contact";
 
 // Validation Schema
 const schema = yup.object({
@@ -25,6 +26,8 @@ const schema = yup.object({
 });
 
 const mobileUsForm = () => {
+  const [postContactUs, { isLoading, isSuccess, isError }] =
+    useContactusMutation();
   const {
     register,
     handleSubmit,
@@ -35,55 +38,72 @@ const mobileUsForm = () => {
   });
 
   const onSubmit = async (data: any) => {
+    console.log(data);
+
     try {
-      const response = await fetch("http://localhost:8081/v1/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // Posting data using fetch
+      const res = postContactUs(data).unwrap();
+      console.log(res);
+      toast.promise(res, {
+        success: () => {
+          return "form submission succesfull";
         },
-        body: JSON.stringify(data),
+        error: "somthing is wrong",
+        loading: "procesing...",
       });
-
-      if (!response.ok) {
-        toast.error(
-          " Something went wrong! Please double-check the form and try again.",
-          {
-            duration: 4000,
-            position: "top-center",
-            icon: "❌", // Custom icon for error
-          }
-        );
-        return;
-      }
-
-      const result = await response.json();
-      toast.success(
-        "Form submitted successfully! We will get back to you shortly.",
-        {
-          duration: 4000,
-          position: "top-center",
-          icon: "🎉", // Custom icon for success
-        }
-      );
-
-      console.log("Success:", result);
-      reset();
     } catch (error) {
-      console.error("Error:", error);
-      toast.error(
-        " Something went wrong! Please double-check the form and try again.",
-        {
-          duration: 4000,
-          position: "top-center",
-          icon: "❌", // Custom icon for error
-        }
-      );
+      console.error("Error submitting form:", error);
     }
   };
+  // const onSubmit = async (data: any) => {
+  //   try {
+  //     const response = await fetch("http://localhost:8081/v1/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     if (!response.ok) {
+  //       toast.error(
+  //         " Something went wrong! Please double-check the form and try again.",
+  //         {
+  //           duration: 4000,
+  //           position: "top-center",
+  //           icon: "❌", // Custom icon for error
+  //         }
+  //       );
+  //       return;
+  //     }
+
+  //     const result = await response.json();
+  //     toast.success(
+  //       "Form submitted successfully! We will get back to you shortly.",
+  //       {
+  //         duration: 4000,
+  //         position: "top-center",
+  //         icon: "🎉", // Custom icon for success
+  //       }
+  //     );
+
+  //     console.log("Success:", result);
+  //     reset();
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     toast.error(
+  //       " Something went wrong! Please double-check the form and try again.",
+  //       {
+  //         duration: 4000,
+  //         position: "top-center",
+  //         icon: "❌", // Custom icon for error
+  //       }
+  //     );
+  //   }
+  // };
 
   return (
     <div>
-      <Toaster />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="text-greyishblack space-y-6">
           {/* Name */}

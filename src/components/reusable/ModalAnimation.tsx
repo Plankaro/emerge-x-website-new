@@ -5,7 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import useDisableScroll from "@/hooks/useDisableScroll ";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { usePostBookADemoMutation } from "@/store/bookdemo";
 
 // Define form types
 interface IFormInputs {
@@ -32,7 +33,7 @@ const schema = yup.object({
     .min(10, "mobile No must be at least 10 digits")
     .max(15, "mobile No must not exceed 15 digits")
     .required("mobile No is required"),
-    description: yup.string().required("description No is required"),
+  description: yup.string().required("description No is required"),
 });
 
 interface ModalAnimationTypes {
@@ -45,7 +46,8 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
   onClose,
 }) => {
   useDisableScroll(isVisible);
-
+  const [postBookdemo, { isLoading, isSuccess, isError }] =
+    usePostBookADemoMutation();
   const {
     register,
     handleSubmit,
@@ -56,50 +58,21 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     console.log(data);
+
     try {
       // Posting data using fetch
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/demoRequest`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = postBookdemo(data).unwrap();
+      console.log(res);
+      toast.promise(res, {
+        success: () => {
+          onClose();
+          return "form submission succesfull";
         },
-        body: JSON.stringify(data),
+        error: "somthing is wrong",
+        loading: "procesing...",
       });
-
-      if (!response.ok) {
-        toast.error(
-          " Something went wrong! Please double-check the form and try again.",
-          {
-            duration: 4000,
-            position: "top-center",
-            icon: "❌", // Custom icon for error
-          }
-        );
-        return;
-      }
-
-      const responseData = await response.json();
-      toast.success(
-        "Form submitted successfully! We will get back to you shortly.",
-        {
-          duration: 4000,
-          position: "top-center",
-          icon: "🎉", // Custom icon for success
-        }
-      );
-      console.log("Form Data Submitted:", responseData);
-
-      onClose();
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error(
-        "Something went wrong! Please double-check the form and try again.",
-        {
-          duration: 4000,
-          position: "top-center",
-          icon: "❌", // Custom icon for error
-        }
-      );
     }
   };
 
@@ -111,7 +84,6 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
 
   return (
     <div className="z-[9000] fixed left-0 top-0 w-full h-screen bg-[#010101] flex items-center justify-center">
-      <Toaster />
       <div className={`popup-border`}>
         <div className="left-shine"></div>
         <div className="right-shine"></div>
@@ -208,12 +180,11 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
                 Description
               </label>
               <textarea
-               
                 id="description"
                 {...register("description")}
                 className="border border-white outline-none bg-[#222720]  text-white rounded-md p-2"
               />
-               {errors.description && (
+              {errors.description && (
                 <span className="text-red-500 text-xs text-left">
                   {errors.description.message}
                 </span>
@@ -223,6 +194,7 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
             {/* Submit Button */}
             <div className="flex items-center justify-center">
               <button
+                disabled={isLoading}
                 type="submit"
                 className="px-[20px] py-[8px] text-sm sm:text-base bg-white rounded-full text-black hover:bg-[#3DA229] transition-all duration-300 ease-in-out hover:text-white"
               >

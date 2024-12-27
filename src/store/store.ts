@@ -6,6 +6,8 @@ import blogReducer from "@/store/reducer/blog";
 import newsReducer from "@/store/reducer/news";
 import { BlogApi } from "./blogs";
 import { NewsApi } from "./news";
+import { bookDemoApi } from "./bookdemo";
+import { contactUs } from "./contact";
 
 
 
@@ -17,9 +19,12 @@ export const makeStore = () => {
       news: newsReducer,
       [BlogApi.reducerPath]: BlogApi.reducer,
       [NewsApi.reducerPath]: NewsApi.reducer,
+      [bookDemoApi.reducerPath]:bookDemoApi.reducer,
+      [contactUs.reducerPath]:contactUs.reducer
+
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(BlogApi.middleware, NewsApi.middleware),
+      getDefaultMiddleware().concat(BlogApi.middleware, NewsApi.middleware,bookDemoApi.middleware,contactUs.middleware),
   });
 };
 
