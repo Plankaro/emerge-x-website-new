@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <>
       <div className="bg-white">
-        <div className="pt-14 max-md:px-8 flex justify-center flex-col items-center  ">
+        <div className="pt-14 max-md:px-8 flex justify-center flex-col items-center container  ">
           <SectionHeading text="Contact Us" />
           <Link href={"/contact-us"} className="w-full md:w-[60%]" >
             <motion.button

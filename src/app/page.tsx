@@ -107,8 +107,8 @@ export default function Home() {
         </div>
       </div>
       <>
-        <div className="bg-greyishblack pt-12   " id="services">
-          <SectionHeading text="All Services" className="text-white" />
+        <div className="  bg-greyishblack pt-12   " id="services">
+          <SectionHeading text="All Services" className="text-white container" />
           <HomeServiceSlider />
         </div>
         {data?.blog && data.blog.length > 0 && <LetestBlogs data={data} />}

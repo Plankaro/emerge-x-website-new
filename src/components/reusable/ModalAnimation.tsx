@@ -58,7 +58,7 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
     console.log(data);
     try {
       // Posting data using fetch
-      const response = await fetch("http://localhost:8081/v1/demoRequest", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/demoRequest`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

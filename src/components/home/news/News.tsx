@@ -16,7 +16,7 @@ const News: React.FC<NewsProps> = ({
   newdData
 }) => {
   return (
-    <div className="bg-white text-greyishblack flex flex-col items-center justify-center pt-14" id="news">
+    <div className="bg-white container text-greyishblack flex flex-col items-center justify-center pt-14" id="news">
       <SectionHeading text="News" />
       {/* <Slider /> */}
 
