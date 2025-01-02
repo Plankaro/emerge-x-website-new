@@ -62,13 +62,15 @@ const ModalAnimation: React.FC<ModalAnimationTypes> = ({
     try {
       // Posting data using fetch
       const res = postBookdemo(data).unwrap();
-      console.log(res);
+
+      console.log("data>><<",isError);
       toast.promise(res, {
         success: () => {
           onClose();
           return "form submission succesfull";
         },
-        error: "somthing is wrong",
+        error:"this email is already registered",
+    
         loading: "procesing...",
       });
     } catch (error) {

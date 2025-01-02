@@ -5,16 +5,15 @@ import { useSwipeable } from "react-swipeable";
 import { NewsItem } from "@/store/news/types/news.types";
 import { useRouter } from "next/navigation";
 
-
 interface SliderWithMotionProps {
-  newdData: NewsItem[]
+  newdData: NewsItem[];
 }
 
-
 const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
+
   const [positionIdex, setPositionIndex] = useState([0, 1, 2, 3, 4]);
   const [isPaused, setIsPaused] = useState(false);
-  const [imgWidth, setImgWidth] = useState('');
+  const [imgWidth, setImgWidth] = useState("");
   const handleNext = () => {
     setPositionIndex((prev) => {
       return prev.map((pre) => (pre + 1) % 5);
@@ -26,14 +25,6 @@ const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
       return prev.map((pre) => (pre - 1 + 5) % 5);
     });
   };
-
-  const SlidesData = [
-    { img: "/services/About US.jpg" },
-    { img: "/services/Recovery.jpg" },
-    { img: "/services/Prevention.jpg" },
-    { img: "/services/Preparedness.jpg" },
-    { img: "/services/Response.jpg" },
-  ];
 
   const position = ["center", "left1", "left", "right", "right1"];
 
@@ -70,11 +61,11 @@ const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
   useEffect(() => {
     const updateSlidesPerView = () => {
       if (window.innerWidth >= 768) {
-        setImgWidth('40%');
+        setImgWidth("40%");
       } else if (window.innerWidth >= 400) {
-        setImgWidth('60%');
+        setImgWidth("60%");
       } else {
-        setImgWidth('60%');
+        setImgWidth("60%");
       }
     };
 
@@ -86,9 +77,9 @@ const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
     };
   }, []);
 
-
-  const centerIndex = positionIdex.findIndex((pos) => position[pos] === "center");
-
+  const centerIndex = positionIdex.findIndex(
+    (pos) => position[pos] === "center"
+  );
 
   return (
     <>
@@ -101,7 +92,7 @@ const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
         {newdData?.map((e, index) => (
           <motion.img
             key={index}
-            src={e.featureImage}
+            src={e.heroBanner}
             alt={"slide"}
             className="rounded-[12px] cursor-pointer"
             initial="center"
@@ -124,23 +115,11 @@ const SliderWithMotion = ({ newdData }: SliderWithMotionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           exit={{ opacity: 0, y: 50 }}
-          className="text-center md:text-[26px] text-[20px] mt-10">
+          className="text-center md:text-[26px] text-[20px] mt-10"
+        >
           {newdData?.[centerIndex]?.heading}
         </motion.div>
       </AnimatePresence>
-
-      {/* <button
-        className="text-black text-[36px] bg-green-400 px-2"
-        onClick={handleNext}
-      >
-        Next
-      </button>
-      <button
-        className="text-black text-[36px] bg-blue-400 px-2"
-        onClick={handlePrev}
-      >
-        Previous
-      </button> */}
     </>
   );
 };

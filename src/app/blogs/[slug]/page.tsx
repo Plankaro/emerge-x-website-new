@@ -63,8 +63,8 @@ const page = () => {
         <BreadCrumb navTrainData={navTrain} />
         <div className=" flex flex-col md:flex-row md:justify-between gap-5 mt-10 text-greyishblack">
           <div className=" w-full md:w-[58%] max-w-[611px] ">
-            <p className="text-base md:text-[18px] leading-[32px]">
-              {/* {data?.description} */}
+            <p className="text-base md:text-[18px] leading-[32px]"  dangerouslySetInnerHTML={{ __html: data?.blog?.htmlBody ?? "" }}>
+         
             </p>
           </div>
           <div className="w-full md:w-[45%] max-w-[516px] rounded-[20px]  overflow-hidden">
@@ -91,10 +91,10 @@ const page = () => {
                     <li>{data?.list2}</li>
                   </ul>
                 </div> */}
-          <div
+          {/* <div
             className="hidden md:flex w-[48%] flex-col gap-8"
             dangerouslySetInnerHTML={{ __html: data?.blog?.htmlBody ?? "" }}
-          ></div>
+          ></div> */}
         </div>
       </SectionWrapper>
 

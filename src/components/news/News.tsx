@@ -133,7 +133,7 @@ export const NewsPage = ({ slug }: { slug: string }) => {
         <SectionWrapper>
           <div className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <h2 className="text-4xl font-semibold text-gray-400 mb-6 max-w-sm">
-              What Happened
+            What's New?
             </h2>
             <div>
               <Image
@@ -159,10 +159,10 @@ export const NewsPage = ({ slug }: { slug: string }) => {
         </SectionWrapper>
 
         <SectionWrapper>
-          <div className="w-full">
-            {/* <h2 className="text-4xl font-semibold text-gray-400 mb-6 max-w-sm">What Happened</h2> */}
+          <div className="w-full grid gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+            <h2 className="text-4xl font-semibold text-gray-400 mb-6 max-w-sm"> What's New?</h2>
             <div>
-              <div className="grid gap-4 grid-cols-2">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
                 <Image
                   src={subFeatureImage1 ?? ""}
                   alt="Feedback System"
